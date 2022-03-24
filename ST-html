@@ -1,1 +1,130 @@
+<body font-family: 'Courier New', Courier, monospace;>
+    <!--通常设置字体也直接在body标签中设置-->
+    <h1 id="red">
+        这是一级标题&lt;
+        <!--&加上实体名字，表示字符，例&lt;表示<-->
+    </h1>
+    <!--一共有六级标题1~6，一个页面中只允许一个1-->
+    <p>
+        <center>我是</center>
+        <!--center标签中内容在页面中居中显示-->
+        <em><font color="red">一个段落</font></em>
+    </p>
+    <!--p是一个段落标签，默认独占一行-->
+    <br/>
+    <!--br是一个换行标签，自结束字符-->
+    <hr/>
+    <!--hr画一条水平线，自结束标签-->
+    <img src="1.jpg" alt="图片显示不出来时显示的文字" title="鼠标放到图片上显示的文字" width="1000px" height="100px" border="15" />
+    <!--img引入图片，自结束标签,src必须要写，里面是图片名字，图片和HTML文件必须在同一目录才显示，width设置宽度，height设置高度，border设置图像边框粗细,width和height若只设置一个则按原比例缩放-->
+    <meta name="keywords" content="HTML5 JAVA " />
+    <!--meta标签，自结束标签，keywords设置网页关键字，description指定网页描述，-->
+    <meta http-equiv="refresh" content="5;ur1=http://www.baidu.com" />
+    <!--跳转百度网页，跳转秒数为5-->
+    <a href="http://www.baidu.com" target="_self">百度</a>
+    <!--a标签表示超链接，从一个页面跳转到另一个页面,href一定要写，_self表示在当前窗口打开连接，_blank表示新窗口打开-->
+    <a href="#two">第二集</a>
+    <!--锚点链接，点击跳转到当前页面某个位置，例跳到<h3 id="two">第二集简介</h3>-->
+    <!-- 将行内元素a元素转换为块元素，在css设置中，display：block；加入到大括号里，这样可以扩大a链接的范围等，块元素转换为行内元素，加display：inline； 转换为行内块元素：display：inline-block-->
 
+    <strong>加粗标签</strong>或者<b></b>
+    <em>倾斜标签</em>或者<i></i>
+    <del>删除线标签</del>或者<s></s>
+    <ins>下划线标签</ins>或者<u></u>
+
+
+    <header>头部标签</header>
+    <nav>导航标签</nav>
+    <article>内容标签</article>
+    <section>定义文档某个区域</section>
+    <aside>侧边栏标签</aside>
+    <footer>尾部标签</footer>
+    <audio src="">音频标签</audio>
+    <!--属性值controls，autoplay，loop，src作用跟video一样
+			音视频文件最好用mp3，mp4格式-->
+    <video src="文件地址" controls="controls">视频标签</video>
+    <!--属性值controls，向用户显示播放控件
+																		 属性值autoplay，视频就绪自动播放
+																		 属性值width，height，设置播放的宽度和高度，单位px
+																		 属性值loop，循环播放
+																		 属性值src，视频地址
+																		 属性值poster，加载等待的画面图片
+																		 属性值muted，静音播放-->
+
+
+    <table>
+        <thead>
+            <!--表格的头部，就是表格的第一行-->
+            <tr>
+                <th>表格第一行</th>
+                <!--表格中第一行，加粗居中显示-->
+                <th>...</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>单元格内文字</td>
+                <!--定义表格中的每一个单元格，必须在tr标签中-->
+                <td colspan="2">...</td>
+                <!--合并第二行的第二第三个单元格-->
+                <td>...</td>
+                <!--按照上行合并示例，需删除该行单元格-->
+            </tr>
+            <!--定义表格中的一行，必须在table中，表格中没有一列-->
+        </tbody>
+        <!--表格的主体-->
+    </table>
+    <!--表格标签，table标签里的内容为表格中的内容-->
+
+
+    <ul>
+        <!--无序列表标签-->
+        <li>列表项1</li>
+        <!--列表项前会加一个圆点-->
+        <li>列表项2</li>
+    </ul>
+    <!-- 去掉列表的形式，例如无序列表中的小圆点 ，在css文件中写下面这几句话-->
+    li { list-style: none; }
+
+    <dl>
+        <!--自定义列表标签-->
+        <dt>名词一</dt>
+        <dd>名词一的解释1</dd>
+        <dd>名词一的解释2</dd>
+    </dl>
+
+    <form action="url地址，接收并处理表单数据的URL地址" method="get或post ，表示提交方式" name="表单域名称，用于区分同一页面中的不同表单域">
+        <!--表单域标签，填写各式各样的标签-->
+        <!--内含表单元素控件-->
+        用户名 <input type="text" value="请输入用户名"> <br/>
+        <!--input为输入表单元素，必须要有type，有多个type值。value的属性值会显示出来，通常在设置按钮时使用
+																		属性type的属性值：email限制用户输入必须为email类型，url限制url类型，date为日期，number为数字，search为搜索框，tel为手机号码-->
+        密码<input type="password" maxlength="6"> <br/>
+        <!--maxlength规定输入字符的最大长度-->
+        性别 <input type="radio" name="sex" checked="checked">男 <input type="radio" name="sex">女
+        <!--单选按钮和复选按钮设置一样的name值，可以实现多选一.checked规定此input元素首次加载时已被选中，主要针对单选和复选按钮-->
+        好吃的 <input type="radio" id="eat"> <label for="eat">芒果</label>
+        <!--label标签绑定一个表单元素，当点击label标签中内容时，可将光标移到对应表单元素上-->
+        籍贯：
+        <select>    <!--select下拉表单元素，option为选项-->
+				<option>山东</option>
+				<option selected="selected">北海</option>     <!--加了selected属性值后，该选项为默认选项-->
+				<option>北京</option>
+			</select>
+        <textarea>文本内容</textarea>
+        <!--textarea为文本域表单元素，与text相比可以写多行文字-->
+
+        <!--h5新增属性及属性值：1、required=“required”，表单拥有该属性表示其内容不能为空，必填
+								  2、placeholder=“提示文本”，表单的提示信息
+								  3、autofocus=“autofocus”，页面加载完成自动聚焦到指定表单
+								  4、autocomplete=“off/on"，保留上次输入过提交过的内容,前提是该标签有name值,默认是on
+								  5、multiple=“multiple”，可以多选文件提交-->
+    </form>
+
+    <div>块元素</div>
+    <!--独占一行，可为一整行添加背景色，对页面布局-->
+
+</body>
+<!--body标签是在网页中的内容，属于主体部分-->
+
+</html>
