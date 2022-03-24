@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--大小写无关，一定要写-->
+<html lang="zh-CN">
+<!--lang定义当前文档显示的语言，en为英文网页，zh-CN为中文网页-->
+<html>
+<!--实际开发中，网站的首页文件统一规定为index.html-->
+
+<head>
+    <meta charset="UTF-8" />
+    <!--网页所采用编码字符集UTF-8-->
+    <title>
+        这是一个网页
+        <!--title标签显示在网页标题上，由搜索引擎负责-->
+    </title>
+
+    <style>
+                /*注释符号，style里面写css内容,此处这样写css称为内部样式表
+             行内样式表：在想修改样式的标签中写style=“color:read;font-size:12px” 
+             外部样式表：最常用，1、新建一个.css文件（里面只有样式，没有style标签），2、在HTML文件中引入css文件：<link rel="stylesheet" href="css文件位置">,link标签写在head标签中*/
+        /*
+        
+        
+        css初始化代码：
+		* {  把我们所有标签的内外边距清零
+			margin：0； 
+			padding：0；
+			box-sizing：border-box
+		 	} 
+
+		em
+		i { em和i的文字倾斜设置不倾斜
+			font-style：normal；
+			}  
+
+		li { 去掉li的小圆点
+			list-style: none;  
+			}  
+
+		img { border 0是照顾低版本浏览器，如果图片外面包含了链接会有边框边框的问题
+			border：0；
+			vertical-align：middle；取消图片底侧会有空白缝隙的问题
+			}
+			
+		button {  当我们鼠标经过按钮时，鼠标会变成小手形状
+			curson：pointer；
+			}
+			
+		a {   修改链接的颜色和去掉下划线
+			color：#666；
+			text-decoration；none；
+			}
+		
+		a:hover {  鼠标经过时变颜色
+			color : red ;
+		}
+		
+		body {
+			-webkit-font-smoothing: antialiased;     css3锯齿形，让文字显示的更加清晰
+			background-color: #fff;
+			color: #666;
+		}
+		
+		.hide,
+		.none {
+			display: none;
+		}
+		
+		.clearfix : after {
+			visibility : hidden;
+			clear : both;
+			display : block;
+			content: ".";
+			height : 0;
+		}
+
+		.clearfix {
+			*zoom; 1;
+		}
+		*/
+        /*
+        
+        
+        选择器{样式}   即：给谁该样式 { 改什么样式 }*/
+        /* 
+        
+        
+        一、标签选择器*/
+        
+        h3 {
+            background-color: red;
+            /*背景颜色*/
+            background-image: url(背景图片位置);
+            /*添加背景图片，易控制图片位置*/
+            background-repeat: no-repeat;
+            /*背景平铺，默认是平铺，repeat是平铺；repeat-x是横着平铺；repeat-y是竖着平铺；背景图片会压住背景颜色*/
+            background-position: x y;
+            /*背景图片位置。xy可以是方位名词：left、right。center、top等，可以xy颠倒，如果只写一个，则另外一个默认居中显示。混合单位，即有xxpx有center等，x位置为水平y位置为竖直*/
+            background-attachment: scroll;
+            /*背景图像固定：scroll为随内容滚动，fixed为固定不动*/
+            /*background混合写法，没有像font的固定顺序，格式与font一样*/
+            background: rgba(0, 0, 0, 0)
+            /*修改背景色半透明状态，最后一个0的取值范围0-1,0是全透明，1是全黑 */
+            /*   img标签是无法在里面直接设置的，得用其他标签嵌套img
+            
+            
+            
+            */
+            color: pink;
+            /*字体颜色，#十六进制，rgb代码，共三种形式*/
+            font-size: 100px;
+            /*字体大小*/
+            font-family: 'Courier New', Courier, monospace;
+            /*设置字体，当一种字体有两个英文时，最好用单引号隔开*/
+            font-weight: bold;
+            /*粗细设置，也可直接用strong标签，nomorl不变粗*/
+            font-style: normal;
+            /*设置文字倾斜或不倾斜,normal是不倾斜*/
+            text-align: center;
+            /*文字水平对齐方式，center居中对齐，left左对齐，right右对齐*/
+            text-decoration: underline;
+            /*装饰文本，none不要任何线，underline下划线，overline上划线，line-through删除线*/
+            text-indent: 2em;
+            /* 首行缩进，em为相对当前元素的一个文字大小，也可用100px等方式缩进 */
+            line-height: 25px;
+            /*行间距*/
+            /* font复合属性：按照规定的顺序写：font：font-style font-weight font-size/line-height font-family */
+            font: italic 700 16px 'Microsoft yahei'/*同时设置font的多种属性，这样写可以节约代码*/
+            /*单行文字垂直居中技巧：将行高与盒子高度相等*/
+            /*
+            
+            
+            vertical-align属性：设置图片或行内块元素和文字垂直对齐，在图片或该行内块元素中设置
+				 *vertical-align：baseline（默认，元素放在父元素的基线上，就是下面会对齐）
+				 				  top（把元素顶端与行内最高元素的顶端对齐）
+								   middle（把此元素放置在父元素的中部）
+								   bottom（把元素顶端与行内最低元素的顶端对齐）
+				可用此属性改一个bug：图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐
+				修改方法：给图片添加vertical-align：top|middle|bottom(推荐使用)。第二种方法是将图片转换为块级元素，display：block；*/
+        }
+        /* 
+        
+        
+        
+        二、类选择器：.类名称{ } ，类的命名有其规则和常用叫法，口诀：样式点定义，结构类调用,一个或多个，开发最常用。一个标签可有多个类名，类名间用空格隔开class="red yellow”*/
+        
+        .red {
+            color: red;
+            width: 100px;
+            height: 100px;
+        }
+        /*在body中，哪个标签想使用这个red样式，直接在该标签中加class="red*/
+        /*
+        
+        
+        三、id选择器:#id名 { },  调用时选择标签的id名相同的，id唯一，class不唯一*/
+        
+        #red {
+            color: red;
+        }
+        /*
+        
+        四、通配符选择器：*{ } ，选中页面中的所有标签*/
+        /*
+        
+        五、后代选择器：选择父元素的所有子元素，格式：父元素 子元素 ...(一层层往里写都可以，元素可以是标签、.类名、#id名) {}*/
+        /*
+        
+        六、子选择器： 选择父元素的第一个子元素，格式：父元素>子元素*/
+        /* 
+        
+        七、并集选择器：将同一级的标签改为相同的样式。格式：元素名，元素名 { } ，该选择器的元素名喜欢竖着写*/
+        /* 例如，<P>
+				        <div>
+						<h3>             运用并集选择器，将div和h3同时修改：div，h3 { } */
+        /*
+      
+        八、链接  伪类选择器：a：link     选择未被访问的链接
+						    a：visited  选择已被访问的链接
+						    a：hover    选择鼠标位于其上的链接
+						    a：active   选择鼠标按下未弹起的链接      格式：a：名字{ }   LVHA的顺序不能颠倒，先写后写*/
+        /* 
+        
+        九、:focus伪类选择器，主要针对于表单元素，把获得光标的表单元素选取出来
+			    input:focus{
+					color:red;
+				} 
+				
+		十、属性选择器   格式: 元素 [属性="属性值"],   或者: 元素 [属性]
+				
+		十一、结构伪类选择器
+				1、元素 ：first-child，选择选择父元素中第一个子元素
+				2、元素 ：last-child ，选择父元素中最后一个元素
+				3、元素 ：nth-child（数字或关键字或公式例如2n+1），选择父元素中的第n个元素，关键字even表示偶数，odd表示奇数，括号中写n表示选择了全部的子元素，n从0开始，n++
+				4、元素 ：first-of-type，选择第一个元素类型
+				5、元素 ：last-of-type，选择最后一个元素
+				6、元素 ：nth-of-type，选择第n个元素
+				前三个与后三个的区别是，前三个先看第几个，再去匹配相应元素，后三个是先看元素，再去找第一个元素，后三个多用于子元素的标签有不一样的情况 */
+        /* 
+        十二、伪元素选择器
+				 1、元素名：：before{}，在元素内部的前面插入内容
+				 2、元素名：：after{}，在元素内部的后面插入内容
+				 before和after创建一个元素，但是属于行内元素
+				必须有content属性，可以为空，也可以写里面的内容
+				权重和标签选择器一样为1 ，：：前不能有空格*/
+        /* 
+        
+        
+
+
+        盒子模型div标签：border边框、margin外边距、paddig内边距、content内容 */
+        
+        table td,
+        th {
+            border-width: 0px;
+            /*边框粗细，单位px*/
+            border-color: red;
+            /*边框颜色*/
+            border-style: dashed;
+            /*边框样式，solid为实线边框，dashed为虚线边框，dotted为点线边框，还有很多样式*/
+            /* 三者复合形式，没有顺序。border：10px dashed red; */
+            /* 边框也可某一边单独设置，top为上，bottom为下，left为左，right为右 */
+            border: 1px solid red;
+            /*内边距和边框都会影响盒子大小，设置盒子大小时，需要考虑边框和页边距*/
+            border-collapse: collapse;
+            /*合并相邻的边框*/
+            padding-right: 20px;
+            /*padding是内边距，是边框距离内容的距离，bottom left right
+               当设置盒子，每个小盒子文字字数不同时，可设置padding来使小盒子挤大，视觉效果更好，例如导航界面.
+			   如果盒子本身没有设置width和height大小,则设置padding值不会撑开盒子大小
+             padding复合写法：padding:5px ,padding后面跟一个值，上下左右都是5px
+								   padding：5px 10px，padding后面跟两个值，上下5，左右10
+								   padding：5px 10px 15px，padding后面跟3个值，上5，左右10，下15
+								   padding：5px 10px 15px 20px，padding后面跟4个值，上5，右10，下15，左20，按照顺时针方向*/
+            margin: 20px;
+            /*外边距，与border-style一样有top、bottom等，根据实际控制。复合写法与padding一样*/
+            /* margin: 0 auto;  外边距可以让块级盒子水平居中显示，需满足的条件：必须设置了盒子宽度width，盒子左右外边距设置为auto */
+            /* 外边距合并，当上面的块元素设置下外边距为100px，下面的块元素设置上外边距为200px时，最后两个块元素上下距离为200px，他们的外边距会合并，取最大。解决方案为尽量只给一个块元素设置就行 */
+            /* 对于两个是父子关系的块元素，即一个较大的里面有个较小的，则父亲会塌陷较大的外边距值，父元素设置20px，子元素设置10px，最后只有20px。解决方案：1、给父元素设置上边框，2、给父元素设置上内边框，3、为父元素添加overflow：hidden */
+            /* 消除网页自带的内外边距等： （这段代码是我们写css时写的第一句话）*/
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* 
+            margin负值的巧妙运用：
+				1、给margin-left等添加边框大小一样的负值，可以消除几个盒子重叠时边框的变粗问题
+				2、当几个盒子浮动在同一行，当鼠标经过时添加其他颜色的边框 ：如果盒子没有设定定位，则添加相对定位即可position：relative；如果盒子已有相对定位，则给：hover中加zidex；1；即可*/
+            /* 写代码时，尽量不要给行内元素设置上下内外边距 */
+            /* 
+            
+            
+            box-sizing：border-box，在css中加上该语句，则盒子的大小只为width，不再累加上padding和border
+							其默认值为context-box，其盒子大小为三者相加 */
+            /* 
+            
+            
+            圆角边框 */
+            border-radius:半径长度（决定边框有多弯）
+            /* 例如在设计圆形时，先准备一个正方形，然后圆角边框数值设计为正方形边长的一半，可用px作为单位，或者直接写50% ，假如是圆角矩形，则设为高度的一半*/
+            /* 可以设置4个数值，从左上角开始顺时针设置,两个数值则为对角线，只想设置一个角则写成border-top-left-radius为左上角 */
+            /* 
+            
+            
+            盒子阴影 */
+            box-shadow:h-shadow;
+            /*  h-shadow必须写，阴影在水平线上的移动，允许负值 
+                v-shadow，必须写，垂直阴影的位置，允许为负值 
+                blur，可写，模糊的程度 
+                spread，可写，模糊尺寸 
+                color，可写，模糊的颜色 
+                inset，可写，外部阴影（outset）改为内部阴影
+                   阴影不占用空间 
+                   盒子看起来没有阴影，当光标定上去时出现阴影：像a标签一样，在后面加：hover即可
+            文字阴影 ；text-shadow，h和v一定要写，其余可写的还有blur和color
+             filter模糊处理：加上语句：filter：blur（）括号里的数值越大，就越模糊 */
+            /* calc函数计算大小：
+            格式例如：width：cale（100%-28px），表示我的宽度永远都是父盒子减28px的宽度，也可以用+-运算符号*/
+            /* 
+            
+            
+            
+            去掉列表的形式，例如无序列表中的小圆点 ，在css文件中写下面这几句话 */
+            li {
+                list-style: none;
+            }
+            input {
+                outline: none;
+            }
+            /* 去掉表单的轮廓线，例如input时的表单轮廓：*/
+            textarea {
+                resize ：none；
+            }
+            /*防止拖拽文本域*/
+            /* 
+            
+            
+            
+            
+            网页布局三大类型：标准流、浮动流、定位流 */
+            /* 多个块级元素纵向排列找标准流，多个块级元素横向排列找浮动流（浮动流块级元素排一起时可以没有间隔等） */
+            /* 
+            浮动格式：选择器 { float：none不浮动，left、right左右浮动}， */
+            /*浮动的特性：浮动元素会脱离标准流（脱标）并且不再保留原先的位置，其他盒子会占有这个位置，浮动元素就飘起来了；
+                         浮动会找边沿去浮动，不局限于本行本列
+                         浮动元素会一行内显示并且顶部对齐,每一个盒子都要设置浮动
+					     浮动元素会具有行内块元素特性
+					     浮动的元素不会压住下面标准流的文字（图片），因为浮动产生的最终目的是为了做文字环绕效果的*/
+            /* 
+            为了约束浮动元素的位置，我们一般采用的策略是：先用标准流的父元素排列上下位置，之后内部子元素采取浮动排列左右位置，符合网页布局的第一准则
+            网页布局第二准则：先设置盒子大小，之后设置盒子位置 
+            不建议设计父盒子的高度，应该由子盒子撑开，清除浮动考虑 */
+            /* 
+             清除浮动:
+                 消除浮动元素对标准流元素的影响，使浮动元素只在其父级元素内浮动
+		         格式：选择器{ clear：left/right/both},分别为清除左浮动的影响，右浮动，左右两侧浮动 */
+            /* 清除浮动方法：1、额外块级标签法清除浮动，即在浮动元素末尾添加新标签，再将该标签修改样式clear:both 
+						    2、给父级元素添加样式：overflow：hidden或auto
+						    3、after伪元素清除法：添加如下代码在css中：
+		.clearfix:after{     记得将清除浮动元素的父级元素添加类名clearfix，也可以将这个连同代码一起换名字，实际应用中推荐使用伪元素清除法
+			content: "";
+			display: 0;
+			clear: both;
+			visibility: hidden;
+		} 
+		.clearfix{
+			*zoom: 1; 
+		}	 
+						    4、双伪元素清除法：类似3，添加代码：*/
+            .clearfix:before,
+            .clearfix:after {
+                content: "";
+                display: table;
+            }
+            .clearfix:after {
+                clear: both;
+            }
+            .clearfix {
+                *zoom: 1;
+                /* 
+                文字围绕浮动元素的巧妙运用：
+                        根据浮动的特性，文字会围绕浮动图片等，只需要给图片设置浮动即可  */
+                /* 
+                
+            
+            
+            定位=定位模式+边偏移 */
+                /*  定位模式分为四个，通过css的position属性来设置：
+			    1、static静态定位
+			    2、relative相对定位，是元素在移动位置的时候，相对于它原来的位置来说的 选择器 { position：relative；top:10px}，原来的位置仍然保存在原来的标准流中，移动后的位置也以标准流形式对待
+			    3、absolut绝对定位， 是元素在移动位置的时候，相对于它的祖先元素来说的，。如果没有父元素或者父元素没有使用定位，则相对于浏览器来定位:如果父元素有使用定位，则以最近一级有定位的祖先元素为参考位置；绝对定位是脱标的不占有原来的位置
+		    口诀：子绝父相，则使用绝对定位的元素，其父元素要用相对定位
+		注意：加了绝对定位的盒子是不能使用margin：0 auto来设置水平居中的。
+            方法：1、设置left：50%，让盒子的左侧移动到父元素的中心位置，
+                 2、margin-left：-盒子自身宽度的一半
+			     4、fixed固定定位：   可以在浏览器滚动时元素的。固定定位是脱标的，是一种特殊的绝对定位。
+		    固定定位贴合在版心的右（左）侧：
+                1、让固定点位的盒子left:50%,走到浏览器可视区域的一半。
+                2、让固定点位的盒子margin-left（right）：版心宽度的一半距离 
+			    5、sticky粘性定位：   1、以浏览器的可视窗口为移动参考，2、粘性定位占有原来的位置，3、必须添加top等其中一个语句才起作用（即移到什么地方的时候不再滚动）
+		    定位叠放次序 z-index：
+                1；使用定位时出现盒子重叠情况，用这个来控制盒子叠放次序， 
+                2、数值越大，盒子越靠上，相同则后来者居上，
+                3、只有设置了定位的盒子才有该属性
+		定位的特殊性：1、行内元素添加了绝对定位或者固定定位后，就可以直接设置高度宽度值
+					2、块级元素添加绝对定位或者固定定位后，如果不给宽度或者高度，则默认大小是内容的大小
+					3、绝对定位或固定定位会压住下面标准流的全部内容*/
+                /* 边偏移，就是定位的盒子移到最终位置，有四个值top，button，right，left，四个值分别表示相对于父元素各边的距离，例如：top：88px 
+		
+
+
+		！！！！元素的显示与隐藏：
+		1、display用于设置一个元素应该如何显示，属性值block，除了有转化为块元素的意思，还有显示元素的意思
+		2、display的属性值none可以隐藏元素，隐藏元素后，不在占有原来的位置
+		3、visibility的属性值visible是显示元素，属性值hidden是隐藏元素，元素隐藏后相比display继续占有原来的位置
+		4、overflow溢出显示隐藏：属性值visible为默认的属性值，即显示溢出部分。hidden为隐藏溢出部分。auto为溢出的时候显示滚动条，不溢出的时候不显示。scroll为不管溢不溢出都显示滚动条*/
+                /*
+        
+        
+        
+    精灵图
+		该技术目的：可以有效减少服务器接收和发送请求次数的，提高页面加载速度，就是把所有东西全部打包一次发过去。
+		精灵图原理：1、主要针对背景图片使用，就是把多个背景图片整合到一张大图片中
+			       2、网页中的坐标相当于笛卡尔坐标系的第四象限，使用的都为负值，因为默认盒子装的是背景图片的左上角
+				   3、主要借助background-position来实现
+				   4、在盒子中装精灵图时，使用语句：background：url（精灵图位置） no-repeat 精灵图中该背景图片的位置*/
+                /* 
+                
+                
+    字体图标
+		1、无法代替精灵技术，只对结构样式简单小图标
+		2、减少了服务器的请求，本质是文字，可以随意修改样式颜色大小，几乎支持所有浏览器
+		3、使用步骤：1、从网上将字体图标下载下来，下载的网站有http://icomoon.io和http://www.iconfont.cn 
+		 			2、字体图标的引入：将下载的压缩包中的fonts文件放到html文件的根目录下，也就是同一级目录中。在css文件中引入该字体文件，找到压缩包中的style.css文件，赋值其中的代码从开头到block。在标签中输入字体图标，并在css中设置该字体图标的font-family为icomoon
+					
+					
+					
+		css三角
+		 给边框的三个方向的颜色是指为透明色transparent，另外一个方向改为想要的颜色，即可实现类似聊天消息的小三角
+		 div {
+			 position :absolut;
+			 right : 小盒子向右移动的距离；
+			 top： 小盒子向上移动的距离；
+			 width:0;
+			 height : 0;
+			 line-height : 0;
+			 font-size:0;
+			 border: 50px solid transparent;
+			 border-left-color: pink;
+		 }
+		 做到一个盒子旁边有一个小三角的效果：1、在盒子里加一个小盒子，该小盒子采用的是子绝父相、
+
+
+
+          /* css3的过渡属性transition：要过渡的属性  花费的时间  运动曲线   何时开始 
+				           要过渡的属性：想要变化的css属性，宽高度、颜色、内外边距都可以，
+						   花费的时间：单位必须写，而且要写秒，表示过渡到那个状态需要的时间，
+						   运动曲线：用ease即可
+						   何时开始：指我做出命令后多久时间开始过渡，也是一定要写单位s，默认是0
+					想哪个标签过渡变化就给哪个标签加transition；
+					可以在同一个transition里设置几种过渡，这几种过渡会一起变化，每种的格式都一样，用逗号分隔开,全部都过渡则将要过渡的属性改为all	   
+				  */
+                /*
+        
+        
+        1、 2D移动位置，在前端里面，坐标系是笛卡尔坐标系的第四象限，
+             translate：transform（x，y）；或者 translate：transformX（x），表示只移动x轴
+             translate不会影响其他元素的位置，对行内标签没有效果
+             可用于当鼠标经过时，有位置变化
+        2、2D转换之旋转
+            transform：rotate（度数deg）
+                角度为正时顺时针，为负逆时针，默认旋转中心是元素中心
+            设置转换的中心点，transform-origin；x y；
+                x和y 用空格隔开，默认是元素中心点（50% 50%），也可以设置像素px或者方位名词（top bottom right left center）
+        3、2D转换之缩放
+            transform：scale（x，y）；
+            scale（1，1）表示宽和高都放大一倍，当只有一个参数时，表示两个参数是一样的，缩小则参数小于1
+            在使用时，如果不想看到放大时超出的部分，可以增加语句：overflow：hidden
+
+		 
+		 
+
+		 鼠标样式cursor：
+		 Li{ cursor：pointer；}
+		 在上面移动时鼠标的样式，直接设置该标签，不一定是a
+		 属性值：1、default 小白箭头（默认） 2、pointer  小手箭头 3、move 移动  4、text 文本  4、not-allowed  禁止
+		 
+		 
+		 溢出的文字省略号表示：
+		 1、先强制一行内显示文本 white-space: nowrap;
+		 2、超出的部分隐藏 overfloe: hidden;
+		 3、文字用沈略号代替超出的部分 text-overflow: ellipsis;
+		 多行时，有较大的兼容性问题，适用于webkit浏览器或移动端
+		 overflow：hidden；
+		 text-overflow；ellipsis；
+		 display；-webkit-box；
+		 -webkit-line-clamp:2;   表示第几行显示省略号
+		 -webkit-box-orient: vertical;*/
+    </style>
+</head>
+
+
+
+
+
+
+
+<body font-family: 'Courier New', Courier, monospace;>
+    <!--通常设置字体也直接在body标签中设置-->
+    <h1 id="red">
+        这是一级标题&lt;
+        <!--&加上实体名字，表示字符，例&lt;表示<-->
+    </h1>
+    <!--一共有六级标题1~6，一个页面中只允许一个1-->
+    <p>
+        <center>我是</center>
+        <!--center标签中内容在页面中居中显示-->
+        <em><font color="red">一个段落</font></em>
+    </p>
+    <!--p是一个段落标签，默认独占一行-->
+    <br/>
+    <!--br是一个换行标签，自结束字符-->
+    <hr/>
+    <!--hr画一条水平线，自结束标签-->
+    <img src="1.jpg" alt="图片显示不出来时显示的文字" title="鼠标放到图片上显示的文字" width="1000px" height="100px" border="15" />
+    <!--img引入图片，自结束标签,src必须要写，里面是图片名字，图片和HTML文件必须在同一目录才显示，width设置宽度，height设置高度，border设置图像边框粗细,width和height若只设置一个则按原比例缩放-->
+    <meta name="keywords" content="HTML5 JAVA " />
+    <!--meta标签，自结束标签，keywords设置网页关键字，description指定网页描述，-->
+    <meta http-equiv="refresh" content="5;ur1=http://www.baidu.com" />
+    <!--跳转百度网页，跳转秒数为5-->
+    <a href="http://www.baidu.com" target="_self">百度</a>
+    <!--a标签表示超链接，从一个页面跳转到另一个页面,href一定要写，_self表示在当前窗口打开连接，_blank表示新窗口打开-->
+    <a href="#two">第二集</a>
+    <!--锚点链接，点击跳转到当前页面某个位置，例跳到<h3 id="two">第二集简介</h3>-->
+    <!-- 将行内元素a元素转换为块元素，在css设置中，display：block；加入到大括号里，这样可以扩大a链接的范围等，块元素转换为行内元素，加display：inline； 转换为行内块元素：display：inline-block-->
+
+    <strong>加粗标签</strong>或者<b></b>
+    <em>倾斜标签</em>或者<i></i>
+    <del>删除线标签</del>或者<s></s>
+    <ins>下划线标签</ins>或者<u></u>
+
+
+    <header>头部标签</header>
+    <nav>导航标签</nav>
+    <article>内容标签</article>
+    <section>定义文档某个区域</section>
+    <aside>侧边栏标签</aside>
+    <footer>尾部标签</footer>
+    <audio src="">音频标签</audio>
+    <!--属性值controls，autoplay，loop，src作用跟video一样
+			音视频文件最好用mp3，mp4格式-->
+    <video src="文件地址" controls="controls">视频标签</video>
+    <!--属性值controls，向用户显示播放控件
+																		 属性值autoplay，视频就绪自动播放
+																		 属性值width，height，设置播放的宽度和高度，单位px
+																		 属性值loop，循环播放
+																		 属性值src，视频地址
+																		 属性值poster，加载等待的画面图片
+																		 属性值muted，静音播放-->
+
+
+    <table>
+        <thead>
+            <!--表格的头部，就是表格的第一行-->
+            <tr>
+                <th>表格第一行</th>
+                <!--表格中第一行，加粗居中显示-->
+                <th>...</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>单元格内文字</td>
+                <!--定义表格中的每一个单元格，必须在tr标签中-->
+                <td colspan="2">...</td>
+                <!--合并第二行的第二第三个单元格-->
+                <td>...</td>
+                <!--按照上行合并示例，需删除该行单元格-->
+            </tr>
+            <!--定义表格中的一行，必须在table中，表格中没有一列-->
+        </tbody>
+        <!--表格的主体-->
+    </table>
+    <!--表格标签，table标签里的内容为表格中的内容-->
+
+
+    <ul>
+        <!--无序列表标签-->
+        <li>列表项1</li>
+        <!--列表项前会加一个圆点-->
+        <li>列表项2</li>
+    </ul>
+    <!-- 去掉列表的形式，例如无序列表中的小圆点 ，在css文件中写下面这几句话-->
+    li { list-style: none; }
+
+    <dl>
+        <!--自定义列表标签-->
+        <dt>名词一</dt>
+        <dd>名词一的解释1</dd>
+        <dd>名词一的解释2</dd>
+    </dl>
+
+    <form action="url地址，接收并处理表单数据的URL地址" method="get或post ，表示提交方式" name="表单域名称，用于区分同一页面中的不同表单域">
+        <!--表单域标签，填写各式各样的标签-->
+        <!--内含表单元素控件-->
+        用户名 <input type="text" value="请输入用户名"> <br/>
+        <!--input为输入表单元素，必须要有type，有多个type值。value的属性值会显示出来，通常在设置按钮时使用
+																		属性type的属性值：email限制用户输入必须为email类型，url限制url类型，date为日期，number为数字，search为搜索框，tel为手机号码-->
+        密码<input type="password" maxlength="6"> <br/>
+        <!--maxlength规定输入字符的最大长度-->
+        性别 <input type="radio" name="sex" checked="checked">男 <input type="radio" name="sex">女
+        <!--单选按钮和复选按钮设置一样的name值，可以实现多选一.checked规定此input元素首次加载时已被选中，主要针对单选和复选按钮-->
+        好吃的 <input type="radio" id="eat"> <label for="eat">芒果</label>
+        <!--label标签绑定一个表单元素，当点击label标签中内容时，可将光标移到对应表单元素上-->
+        籍贯：
+        <select>    <!--select下拉表单元素，option为选项-->
+				<option>山东</option>
+				<option selected="selected">北海</option>     <!--加了selected属性值后，该选项为默认选项-->
+				<option>北京</option>
+			</select>
+        <textarea>文本内容</textarea>
+        <!--textarea为文本域表单元素，与text相比可以写多行文字-->
+
+        <!--h5新增属性及属性值：1、required=“required”，表单拥有该属性表示其内容不能为空，必填
+								  2、placeholder=“提示文本”，表单的提示信息
+								  3、autofocus=“autofocus”，页面加载完成自动聚焦到指定表单
+								  4、autocomplete=“off/on"，保留上次输入过提交过的内容,前提是该标签有name值,默认是on
+								  5、multiple=“multiple”，可以多选文件提交-->
+    </form>
+
+    <div>块元素</div>
+    <!--独占一行，可为一整行添加背景色，对页面布局-->
+
+</body>
+<!--body标签是在网页中的内容，属于主体部分-->
+
+</html>
